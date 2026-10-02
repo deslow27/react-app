@@ -3,14 +3,20 @@ import { useState } from "react";
 function Search(props) {
     const [search, setSearch] = useState("");
     const onSearchChange = (event) => {
-        setSearch(event.target.value);
-        props.onSearchChange(event.target.value);
+        props.onSearchChange(search);
+    };
+
+    const searchKeyDown = (event) => {
+        if (event.key === "Enter") {
+            onSearchChange();
+        }
     };
 
     return (
         <>
             <div>
-                Cari Artikel : <input type="text" onChange={onSearchChange} />
+                Cari Artikel : <input type="text" onChange={(e) => setSearch(event.target.value)} onKeyDown={searchKeyDown} />
+                <button onClick={onSearchChange}>Cari</button>
             </div>
             <small>
                 Ditemukan {props.totalPosts} data pada kata {search}
