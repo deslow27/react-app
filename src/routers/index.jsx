@@ -3,6 +3,7 @@ import RootLayout from "../layouts/RootLayout";
 
 import Home from "../pages/Index";
 import About from "../pages/about";
+import Blog from "../pages/blogs";
 
 export const router = createBrowserRouter([
     {
@@ -16,6 +17,10 @@ export const router = createBrowserRouter([
             {
                 path: "/about",
                 element: <About />,
+            },
+            {
+                path: "/blog",
+                element: <Blog />,
             },
         ],
     },
